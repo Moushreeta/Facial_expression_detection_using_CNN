@@ -1,0 +1,44 @@
+---
+title: "Untitled"
+author: "Moushreeta Debroy(22122132)"
+date: "2022-12-05"
+output: html_document
+---
+
+
+```{r}
+library(readxl)
+crop_data <- read_excel("C:/Users/PRASANTA/Downloads/crop.data.xlsx")
+View(crop_data)
+```
+
+```{r}
+head(crop_data)
+```
+
+```{r}
+crop_data$fertilizer<-as.factor(crop_data$fertilizer)
+crop_data$soil_type<-as.factor((crop_data$soil_type))
+levels(crop_data$fertilizer)
+levels(crop_data$soil_type)
+``` 
+```{r}
+aov(yield~fertilizer,data=crop_data)
+#without interation
+result<-aov(yield~fertilizer+soil_type,data=crop_data)
+result
+summary(result)
+TukeyHSD(result)
+```
+```{r}
+result2<-aov(yield~fertilizer*soil_type,data = crop_data)
+summary(result2)
+```
+```{r}
+aov(yield~fertilizer,data=crop_data)
+summary(x)
+```
+```{r}
+
+```
+

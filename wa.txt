@@ -1,0 +1,3 @@
+user segmentation
+session segmentation
+event segmentation

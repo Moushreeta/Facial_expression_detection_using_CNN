@@ -1,0 +1,24 @@
+adaboost:
+Adaboost performs a similar role for our equation. It reduces complexity of image classification even more by finding the most important features of the target object and, essentially, getting rid of the rest.
+Adaboost performs a similar role for our equation. It reduces complexity of image classification even more by finding the most important features of the target object and, essentially, getting rid of the rest.
+
+So Adaboost’s goal is to update the weights of specific features to maximize the likelihood of classifying the target object correctly 
+while also eliminating Haar-like features that don’t aid in the detection process. Features that give the classifier a higher number of true-positives 
+(target image classified as “target”) and true-negatives (non-target classified as “non-target”) receive larger weights, as they’re more likely to be
+ unique to the target object. On the other hand, features that lead to a high number of false-positives (non-targets classified as “target”) 
+and false-negatives (targets classified as “non-target”) receive smaller weights with a possibility of being assigned a weight of zero.
+Adaboost
+Adaptive boosting (or Adaboost) is another optimization that was utilized in the creation of the Viola-Jones algorithm. Remember when we learned about the Integral Image, we spoke about the Big O. We learned that the Big O is a computational problem that states that as a task increases in complexity, the time taken and resources used to perform it increase exponentially. Since there are over 180,000 features in a single 24x24 pixel image, our equation would look something like this:
+
+F(x) = α₀ f₀(x) + α₁ f₁(x) + α₂ f₂(x) + …+α₁₇₉,₉₉₉f₁₇₉,₉₉₉(x)+ …
+
+Like we mentioned last time, if it took 1ms to perform the computations necessary for a single feature (again, this is EXTREMELY slow), then the time to compute ALL of the features in a 24x24 pixel image would skyrocket to over 6 minutes. To address this, the Integral Image is created so that potential Haar-like features can be evaluated in a fraction of the time.
+
+Adaboost performs a similar role for our equation. It reduces complexity of image classification even more by finding the most important features of the target object and, essentially, getting rid of the rest.
+
+Now, how does it “get rid of” unimportant features? Well, remember earlier that any feature where αₙ = 0 is considered unimportant. Then take into account this basic multiplication rule: n x 0 = 0. Therefore, any term (αₙ fₙ(x)) in our equation where αₙ = 0 calculates to 0 (e.g. 0 fₙ(x) = 0) and is dropped!
+
+So Adaboost’s goal is to update the weights of specific features to maximize the likelihood of classifying the target object correctly while also eliminating Haar-like features that don’t aid in the detection process. Features that give the classifier a higher number of true-positives (target image classified as “target”) and true-negatives (non-target classified as “non-target”) receive larger weights, as they’re more likely to be unique to the target object. On the other hand, features that lead to a high number of false-positives (non-targets classified as “target”) and false-negatives (targets classified as “non-target”) receive smaller weights with a possibility of being assigned a weight of zero.
+
+That was a lot of words and numbers, so let’s see it in action and tie it in with the intuition we developed in the last article.\
+file:///C:/Users/PRASANTA/Downloads/Recognizing_Facial_Expression_Machine_Le.pdf
